@@ -44,6 +44,10 @@ Route::prefix('cms')->group(function () {
 
         });
 
+        Route::resource('/users', 'Back\UsersController');
+
+        Route::resource('/reviews', 'Back\ReviewsController');
+
         Route::resource('/categories', 'Back\CategoriesController');
 
         Route::resource('/products', 'Back\ProductsController');

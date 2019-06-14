@@ -12,7 +12,8 @@ class CategoryController extends Controller
     {
         $products = $category->products()->paginate(24);
 
-        return view('front.category.show', compact('category', 'products'));
+
+        return view('front.category.show', compact('category', 'products', 'rating', 'reviews'));
 
     }
 }

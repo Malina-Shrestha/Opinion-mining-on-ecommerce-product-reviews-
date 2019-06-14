@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link href="{{ asset('public/css/back/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('public/css/back/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
+@endsection
+
+@section('pageTitle')
+    <a class="navbar-brand" href="{{ route('products.index') }}"><i class="pe-7s-drawer"></i>Products</a>
+    <a href="{{ route('products.create') }}" class="navbar-brand"><i class="pe-7s-plus"></i>Add Product</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col">
-                    <h1>Products</h1>
-                </div>
-                <div class="col-auto">
-                    <a href="{{ route('products.create') }}" class="btn btn-primary mt-2">Add Product</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     @if(!$products->isEmpty())
-                        <table class="table table-striped table-hover table-sm">
+                        <table id="table" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>SN</th>
                                     <th>Name</th>
                                     <th>Product Code</th>
                                     <th>Category</th>
@@ -33,6 +36,7 @@
                             <tbody>
                                 @foreach($products as $product)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->product_code }}</td>
                                     <td>{{ $product->category->name }}</td>
@@ -44,13 +48,13 @@
                                     </td>
                                     <td>
                                         @if(!empty($product->image))
-                                            <img src="{{ url('public/images/'.$product->image) }}" class="img-fluid small">
+                                            <img src="{{ url('public/images/'.$product->image) }}" class="img-fluid small" style="max-width: 80px;">
                                         @endif
                                     </td>
                                     <td>{{ $product->location }}</td>
                                     <td>{{ $product->featured }}</td>
-                                    <td>{{ $product->created_at }}</td>
-                                    <td>{{ $product->updated_at }}</td>
+                                    <td>{{ date('Y M d (l)',strtotime($product->created_at)) }}</td>
+                                    <td>{{ date('Y M d (l)',strtotime($product->updated_at))}}</td>
                                     <td>
                                         {{ Form::open(['method' => 'delete', 'route' => ['products.destroy', $product->product_code]]) }}
                                         <a href="{{ route('products.edit', $product->product_code) }}" class="btn btn-primary btn-sm">Edit</a>
@@ -66,10 +70,19 @@
                             <h5 class="text-center">No Product added</h5>
                     @endif
                 </div>
-                <div class="col-12">
-                    {{ $products->links() }}
-                </div>
             </div>
         </div>
     </div>
 @endsection
+
+@section('scripts')
+
+    <script src="{{ asset('public/js/back/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/js/back/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        } );
+    </script>
+@endsection
+

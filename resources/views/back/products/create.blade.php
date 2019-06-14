@@ -1,16 +1,14 @@
-
 @extends('layouts.app')
 
+@section('pageTitle')
+    <a class="navbar-brand" href="{{ route('products.index') }}"><i class="pe-7s-drawer"></i>Products</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 mx-auto">
-                    <h1>Add Product</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
+                <div class="col-md-12">
                     {{ Form::open(['method' => 'post', 'route' => 'products.store', 'files' => true]) }}
                         <div class="form-group">
                             {{ Form::label('name', 'Name') }}
@@ -49,7 +47,7 @@
                         {{ Form::select('featured', ['no' => 'No', 'yes' => 'Yes'], null, ['class' => 'form-control', 'required']) }}
                     </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-info btn-fill btn-sm">Save</button>
                         </div>
                     {{ Form::close() }}
                 </div>

@@ -34,8 +34,8 @@
                         {{ auth('admin')->user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">Edit Profile</a>
-                        <a class="dropdown-item" href="{{ route('admin.password.edit') }}">Change Password</a>
+                        <a href="{{ route('admin.profile.edit') }}">Edit Profile</a>
+                        <a href="{{ route('admin.password.edit') }}">Change Password</a>
                         <div class="dropdown-divider"></div>
                         {{ Form::open(['method' => 'post', 'route' => 'admin.logout']) }}
                         <button class="btn btn-link dropdown-item" type="submit">Logout</button>

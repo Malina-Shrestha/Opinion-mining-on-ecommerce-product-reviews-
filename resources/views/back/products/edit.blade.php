@@ -1,16 +1,15 @@
 
 @extends('layouts.app')
 
+@section('pageTitle')
+    <a class="navbar-brand" href="#">Edit Category</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 mx-auto">
-                    <h1>Edit Product</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
+                <div class="col-md-12">
                     {{ Form::model($product, ['method' => 'patch', 'route' => ['products.update', $product->product_code], 'files' => true]) }}
                         <div class="form-group">
                             {{ Form::label('name', 'Name') }}
@@ -36,7 +35,7 @@
                             {{ Form::label('image', 'Image') }}
                             {{ Form::file('image', null, ['class' => 'form-control-file']) }}
                             @if(!empty($product->image))
-                                <img src="{{ url('public/images/'.$product->image) }}" class="img-fluid mt-3">
+                                <img src="{{ url('public/images/'.$product->image) }}" class="img-fluid mt-3" style="max-width: 80px;>
                             @endif
                         </div>
                         <div class="form-group">
@@ -52,7 +51,7 @@
                         {{ Form::select('featured', ['no' => 'No', 'yes' => 'Yes'], null, ['class' => 'form-control', 'required']) }}
                     </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-info btn-fill btn-sm">Save</button>
                         </div>
                     {{ Form::close() }}
                 </div>

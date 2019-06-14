@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    <a class="navbar-brand" href="#">Edit Profile</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 mx-auto">
-                    <h1>Edit Profile</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
+                <div class="col-md-12">
                     {{ Form::open(['method' => 'patch', 'route' => 'admin.profile.update']) }}
                         <div class="form-group">
                             {{ Form::label('name', 'Name') }}

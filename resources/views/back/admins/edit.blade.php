@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    <a class="navbar-brand" href="#">Edit Admin</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 mx-auto">
-                    <h1>Edit Admin</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
+                <div class="col-md-12">
                     {{ Form::model($admin, ['method' => 'patch', 'route' => ['admins.update', $admin->id]]) }}
                         <div class="form-group">
                             {{ Form::label('name', 'Name') }}
@@ -20,7 +19,7 @@
                             {{ Form::email('email', null, ['class' => 'form-control', 'readonly']) }}
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-info btn-fill">Save</button>
                         </div>
                     {{ Form::close() }}
                 </div>

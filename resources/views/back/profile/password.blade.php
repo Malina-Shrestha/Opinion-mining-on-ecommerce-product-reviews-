@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    <a class="navbar-brand" href="#">Change Password</a>
+@endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-12 bg-white">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 mx-auto">
-                    <h1>Change Password</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
+                <div class="col-md-12">
                     {{ Form::open(['method' => 'patch', 'route' => 'admin.password.update']) }}
                         <div class="form-group">
                             {{ Form::label('old_password', 'Old Password') }}
