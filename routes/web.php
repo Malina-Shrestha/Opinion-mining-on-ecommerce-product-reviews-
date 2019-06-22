@@ -52,6 +52,8 @@ Route::prefix('cms')->group(function () {
 
         Route::resource('/products', 'Back\ProductsController');
 
+        Route::resource('/orders', 'Back\OrdersController');
+
         Route::get('/get-slug/{name}', function ($name) {
             $result = [
                 'slug' => Str::slug($name)

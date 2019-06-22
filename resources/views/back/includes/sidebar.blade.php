@@ -43,7 +43,7 @@
             </li>
             <li>
                 <a href="{{ route('users.index') }}">
-                    <i class="pe-7s-add-user"></i>
+                    <i class="pe-7s-user"></i>
                     <p>Users</p>
                 </a>
             </li>
@@ -54,8 +54,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="pe-7s-angle-left"></i>
+                <a href="{{ route('orders.index') }}">
+                    <i class="pe-7s-note2"></i>
                     <p>Orders</p>
                 </a>
             </li>

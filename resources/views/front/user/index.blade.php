@@ -19,10 +19,10 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active table-responsive" id="booking" role="tabpanel" aria-labelledby="booking-tab">
                             @if(!$orders->isEmpty())
-                            <table class="table table-hover table-striped table-sm my-3">
+                                <table class="table table-hover table-striped table-sm my-3">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>SN</th>
                                     <th>Details</th>
                                     <th>Total</th>
                                     <th>Status</th>
@@ -32,10 +32,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php($i = 1)
                                 @foreach($orders as $order)
                                 <tr>
-                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>
                                         <ul>
                                             @foreach($order->order_details as $detail)
@@ -57,9 +56,9 @@
                                 </tr>
                                 @endforeach
                                 </tbody>
-                            </table>
+                                </table>
                             @else
-                            <h6 class="text-center"><em>No order added.</em></h6>
+                                <h6 class="text-center"><em>No order added.</em></h6>
                             @endif
                         </div>
                         <div class="tab-pane fade table-responsive" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">

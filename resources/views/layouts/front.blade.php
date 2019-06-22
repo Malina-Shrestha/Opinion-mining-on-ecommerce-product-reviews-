@@ -108,16 +108,16 @@
     <footer class="row">
         <div class="col-12 bg-dark text-white pb-3 pt-5">
             <div class="row">
-                <div class="col-lg-2 col-sm-4 text-center text-sm-left mb-sm-0 mb-3">
+                <div class="col-lg-2 col-sm-2 text-center text-sm-left mb-sm-0 mb-3">
                     <div class="row">
                         <div class="col-12">
                             <div class="footer-logo">
-                                <a href="index.html">E-Commerce</a>
+                                <a href="{{ url('/') }}">E-Commerce</a>
                             </div>
                         </div>
                         <div class="col-12">
                             <address>
-                                Tahachal Bagaicha-13<br>
+                                Tahachal Marg-13<br>
                                 Kathmandu
                             </address>
                          </div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
+                <div class="col-lg-2 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
                     <div class="row">
                         <div class="col-12 text-uppercase">
                             <h4>Who are we?</h4>
@@ -148,7 +148,7 @@
                         <div class="col-12">
                             <ul class="footer-nav">
                                 <li>
-                                    <a href="#">Home</a>
+                                    <a href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li>
                                     <a href="#">Contact Us</a>
@@ -166,32 +166,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-1 col-sm-2 col-4 mr-auto mb-sm-0 mb-3">
+                <div class="col-lg-3 col-sm-3 text-center text-sm-left mb-sm-0 mb-3">
                     <div class="row">
-                        <div class="col-12 text-uppercase text-underline">
-                            <h4>Help</h4>
+                        <div class="col-12 text-uppercase">
+                            <h4>Location</h4>
                         </div>
-                        <div class="col-12">
-                            <ul class="footer-nav">
-                                <li>
-                                    <a href="#">FAQs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Shipping</a>
-                                </li>
-                                <li>
-                                    <a href="#">Returns</a>
-                                </li>
-                                <li>
-                                    <a href="#">Track Order</a>
-                                </li>
-                                <li>
-                                    <a href="#">Report Fraud</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="448" height="262" id="gmap_canvas" src="https://maps.google.com/maps?q=tahachal%20marg&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:169px;width:310px;}.gmap_canvas {overflow:hidden;background:none!important;height:169px;width:310px;}</style></div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-sm-6 text-center text-sm-left">
                     <div class="row">
                         <div class="col-12 text-uppercase">

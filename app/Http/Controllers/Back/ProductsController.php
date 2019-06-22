@@ -56,7 +56,6 @@ class ProductsController extends Controller
         $product->product_code = $request->product_code;
         $product->description = $request->description;
         $product->price = $request->price;
-        $discount = $price - $discount;
         $product->discount = $request->discount;
         $product->category_id = $request->category_id;
         $product->location = $request->location;
@@ -66,7 +65,7 @@ class ProductsController extends Controller
             $img = Image::make($request->image);
             $ext = $request->image->extension();
             $filename = 'img_'.date('sdHmYi').'_'.rand(1000, 9999).'.'.$ext;
-
++
             $img->resize(1000,1000, function ($constraints) {
                 $constraints->aspectRatio();
                 $constraints->upsize();

@@ -1,6 +1,8 @@
 @extends('layouts.front')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('public/css/front/chart.min.css') }}">
+    <script src="{{asset('public/js/front/chart.min.js')}}"></script>
     <!-- Main Content -->
     <main class="row">
         <div class="col-12 bg-white py-3 my-3">
@@ -216,7 +218,9 @@
                                 @if(!$reviews->isEmpty())
                                 @foreach($reviews as $review)
                                 <!-- Comments -->
-                                <div class="col-12 text-justify py-2 mb-3 bg-gray">
+                                <div class="col-12 text-justify py-2 mb-3 bg-gray" @if($review->positive_review==true) style="border-left: 3px solid lightgreen;
+" @else style="border-left: 3px solid red;
+" @endif>
                                     <div class="row">
                                         <div class="col-12">
                                             <strong class="mr-2">{{ $review->user->name }}</strong>
@@ -249,6 +253,9 @@
                                 </div>
                                 <!-- Comments -->
                                 @endif
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#sentimentsModal">Product sentiments</button>
                             </div>
                         </div>
                         <!-- Review -->
@@ -323,4 +330,97 @@
     </main>
     <!-- Main Content -->
 
+    {{--Sentiments Modal--}}
+    {{--<div class="modal fade" id="sentimentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">--}}
+        {{--<div class="modal-dialog modal-dialog-centered" role="document">--}}
+            {{--<div class="modal-content">--}}
+                {{--<div class="modal-header">--}}
+                    {{--<h5 class="modal-title" id="exampleModalLongTitle">Sentiments Analysis</h5>--}}
+                    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+                        {{--<span aria-hidden="true">&times;</span>--}}
+                    {{--</button>--}}
+                {{--</div>--}}
+                {{--<div class="modal-body">--}}
+                    {{--<div id="canvas-holder" style="width:40%">--}}
+                        {{--<canvas id="sentimentsChart" width="800px" height="800px"></canvas>--}}
+                        {{--<script>--}}
+                            {{--var config = {--}}
+                                {{--type: 'pie',--}}
+                                {{--data: {--}}
+                                    {{--datasets: [{--}}
+                                        {{--data: [--}}
+                                            {{--15,55--}}
+                                        {{--],--}}
+                                        {{--backgroundColor: [--}}
+                                            {{--'rgba(255,0,0,0.6)',--}}
+                                            {{--'rgba(0,255,0,0.6)',--}}
+                                        {{--],--}}
+                                        {{--label: 'Dataset 1'--}}
+                                    {{--}],--}}
+                                    {{--labels: [--}}
+                                        {{--'Negative',--}}
+                                        {{--'Positive'--}}
+                                    {{--]--}}
+                                {{--},--}}
+                                {{--options: {--}}
+                                    {{--responsive: true--}}
+                                {{--}--}}
+                            {{--};--}}
+
+                            {{--window.onload = function() {--}}
+                                {{--var ctx = document.getElementById('sentimentsChart').getContext('2d');--}}
+                                {{--window.myPie = new Chart(ctx, config);--}}
+                            {{--};--}}
+                        {{--</script>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    <div class="modal fade bd-example-modal-lg" id="sentimentsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="max-width: 650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Sentiments Analysis</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="canvas-holder" style="width:100%;">
+                        <canvas id="sentimentsChart" width="800px" height="800px"></canvas>
+                        <script>
+                            var config = {
+                                type: 'pie',
+                                data: {
+                                    datasets: [{
+                                        data: [
+                                            {{$positive_reviews}},{{$negative_reviews}}
+                                        ],
+                                        backgroundColor: [
+                                            'rgba(0,255,0,0.9)',
+                                            'rgba(255,0,0,0.6)',
+                                        ],
+                                        label: 'Dataset 1'
+                                    }],
+                                    labels: [
+                                        'Positive',
+                                        'Negative',
+                                    ]
+                                },
+                                options: {
+                                    responsive: true
+                                }
+                            };
+
+                            window.onload = function() {
+                                var ctx = document.getElementById('sentimentsChart').getContext('2d');
+                                window.myPie = new Chart(ctx, config);
+                            };
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

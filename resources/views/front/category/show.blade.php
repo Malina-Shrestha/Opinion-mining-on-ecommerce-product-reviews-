@@ -47,6 +47,7 @@
                                             </span>
                                         @endif
                                     </div>
+
                                     <div class="col-12 mb-3 align-self-end">
                                         <button class="btn btn-outline-dark add-to-cart" data-code="{{ $product->product_code }}" data-price="{{ !empty($product->discount) ? $product->discount : $product->price }}" type="button"><i class="fas fa-cart-plus mr-2"></i>Add to cart</button>
                                         <input type="hidden" id="qty-{{ $product->product_code }}" value="1">

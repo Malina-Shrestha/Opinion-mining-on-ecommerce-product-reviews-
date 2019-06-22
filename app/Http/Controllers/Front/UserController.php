@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Order;
 use App\Review;
+use SentimentAnalysis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

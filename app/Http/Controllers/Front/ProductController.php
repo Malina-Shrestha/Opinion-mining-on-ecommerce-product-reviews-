@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Product;
 use App\Review;
+use SentimentAnalysis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,7 +13,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $reviews = $product->reviews;
-
+        $positive_reviews = $product->reviews->where('positive_review',true)->count();
+        $negative_reviews = $product->reviews->where('positive_review',false)->count();
         $total = $reviews->count();
 
         $avg = $reviews->average('rating');
@@ -38,7 +40,7 @@ class ProductController extends Controller
 
         $similar = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->take(4)->get();
 
-        return view('front.product.show', compact('product', 'reviews', 'total', 'avg', 'ratings', 'similar'));
+        return view('front.product.show', compact('product', 'reviews', 'total', 'avg', 'ratings', 'similar','positive_reviews','negative_reviews'));
     }
 
     public function storeReview(Request $request, Product $product)
@@ -47,9 +49,11 @@ class ProductController extends Controller
             'comment' => 'required',
             'rating' => 'required'
         ]);
-
+        $analysis = new SentimentAnalysis();
+        $sentiments = $analysis->isPositive($request->comment);
         $review = new Review;
         $review->comment = $request->comment;
+        $review->positive_review = $sentiments;
         $review->rating = $request->rating;
         $review->product_id = $product->id;
         $review->user_id = auth('web')->id();
