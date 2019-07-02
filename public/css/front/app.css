@@ -15546,6 +15546,11 @@ a {
   color: #000;
 }
 
+.logo{
+    width: 70px;
+    height: 160px;
+    margin-top: -80%;
+}
 .header-item {
   padding: 0.25rem 0.4rem;
   cursor: pointer;

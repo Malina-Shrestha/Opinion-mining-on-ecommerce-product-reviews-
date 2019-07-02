@@ -14,13 +14,13 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="{{ url('public/images/1.jpg') }}" class="slider-img">
+                        <img src="{{ url('public/images/slider-6.jpg') }}" class="slider-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ url('public/images/women.jpg') }}" class="slider-img">
+                        <img src="{{ url('public/images/slider-4.jpg') }}" class="slider-img" style="height:435px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ url('public/images/slider-3.jpg') }}" class="slider-img">
+                        <img src="{{ url('public/images/slider-3.jpg') }}" class="slider-img" style="height:435px;">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">

@@ -64,7 +64,7 @@ class ProductsController extends Controller
         if ($request->hasFile('image')) {
             $img = Image::make($request->image);
             $ext = $request->image->extension();
-            $filename = 'img_'.date('sdHmYi').'_'.rand(1000, 9999).'.'.$ext;
+            $filename = 'img_'.date('Y M d (l)').'_'.rand(1000, 9999).'.'.$ext;
 +
             $img->resize(1000,1000, function ($constraints) {
                 $constraints->aspectRatio();

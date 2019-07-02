@@ -25,7 +25,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"><i class="pe-7s-display1"></i>Admins</h4>
+                            <h4 class="title"><i class="pe-7s-users"></i>Admins</h4>
                         </div>
                         <div class="content" style="font-weight:bold; font-size:25px;">
                             {{$admins}}
@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"><i class="pe-7s-user"></i>Categories</h4>
+                            <h4 class="title"><i class="pe-7s-albums"></i>Categories</h4>
                         </div>
                         <div class="content" style="font-weight:bold; font-size:25px;">
                             {{$categories}}
@@ -47,7 +47,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"><i class="pe-7s-comment"></i>Products</h4>
+                            <h4 class="title"><i class="pe-7s-drawer"></i>Products</h4>
                         </div>
                         <div class="content" style="font-weight:bold; font-size:25px;">
                             {{$products}}
@@ -58,7 +58,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"><i class="pe-7s-comment"></i>Users</h4>
+                            <h4 class="title"><i class="pe-7s-user"></i>Users</h4>
                         </div>
                         <div class="content" style="font-weight:bold; font-size:25px;">
                             {{$users}}

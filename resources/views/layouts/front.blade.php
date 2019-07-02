@@ -55,8 +55,8 @@
         <div class="col-12 bg-white pt-4">
             <div class="row">
                 <div class="col-lg-auto">
-                    <div class="site-logo text-center text-lg-left">
-                        <a href="{{ url('/') }}">E-Commerce</a>
+                    <div class="logo text-center text-lg-left">
+                        <a href="{{ url('/') }}"><img src="{{ url('public/images/logo.png') }}"></a>
                     </div>
                 </div>
                 <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
@@ -112,7 +112,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="footer-logo">
-                                <a href="{{ url('/') }}">E-Commerce</a>
+                                <a href="{{ url('/') }}"><img src="{{ url('public/images/logo.png') }}"></a>
                             </div>
                         </div>
                         <div class="col-12">

@@ -218,8 +218,8 @@
                                 @if(!$reviews->isEmpty())
                                 @foreach($reviews as $review)
                                 <!-- Comments -->
-                                <div class="col-12 text-justify py-2 mb-3 bg-gray" @if($review->positive_review==true) style="border-left: 3px solid lightgreen;
-" @else style="border-left: 3px solid red;
+                                <div class="col-12 text-justify py-2 mb-3 bg-gray" @if($review->positive_review==true) style="border-left: 3px solid lightgreen";
+" @else style="border-left: 3px solid red";
 " @endif>
                                     <div class="row">
                                         <div class="col-12">

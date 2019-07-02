@@ -10,7 +10,7 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{ url('/') }}" class="simple-text">
-                Ecommerce
+                <img src="{{ url('public/images/logo.png')}}" style="height: 150px">
             </a>
         </div>
 
@@ -24,7 +24,7 @@
             <li>
                 @if(auth('admin')->user()->type == 'admin')
                 <a href="{{ route('admins.index')}}">
-                    <i class="pe-7s-user"></i>
+                    <i class="pe-7s-users"></i>
                     <p>Admins</p>
                 </a>
                 @endif

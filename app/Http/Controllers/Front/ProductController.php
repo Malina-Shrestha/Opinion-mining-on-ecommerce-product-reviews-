@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function show(Product $product)
     {
-        $reviews = $product->reviews;
+        $reviews = $product->reviews->take(10);
         $positive_reviews = $product->reviews->where('positive_review',true)->count();
         $negative_reviews = $product->reviews->where('positive_review',false)->count();
         $total = $reviews->count();
