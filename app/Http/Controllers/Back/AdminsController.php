@@ -15,7 +15,7 @@ class AdminsController extends Controller
      */
     public function index()
     {
-        $admins = Admin::where('type', 'staff')->paginate('10');
+        $admins = Admin::where('type', 'staff')->get();
 
         return view('back.admins.index', compact('admins'));
     }

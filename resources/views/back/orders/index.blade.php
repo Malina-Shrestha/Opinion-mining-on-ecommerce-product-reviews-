@@ -6,7 +6,7 @@
 @endsection
 
 @section('pageTitle')
-    <a class="navbar-brand" href="{{ route('orders.index') }}"><i class="pe-7s-comment"></i>Reviews</a>
+    <a class="navbar-brand" href="{{ route('orders.index') }}"><i class="pe-7s-comment"></i>Orders</a>
 @endsection
 
 @section('content')
@@ -14,7 +14,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @if(!$orders->isEmpty())
                         <table id="table" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
@@ -25,8 +24,7 @@
                                 <th>Status</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                <th>Action</th>Structure
-ordersHide
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,14 +48,12 @@ ordersHide
                                     <td>
                                         {{ Form::open(['method' => 'delete', 'route' => ['orders.destroy', $order->id]]) }}
                                         <button class="btn btn-danger btn-sm delete" type="submit">Delete</button>
-                                        {{ form::close() }}                                    </td>
+                                        {{ Form::close() }}
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                    @else
-                        <h6 class="text-center"><em>No review added.</em></h6>
-                    @endif
                 </div>
             </div>
         </div>

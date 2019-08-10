@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @if(!$products->isEmpty())
-                        <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <table id="content" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>SN</th>
@@ -77,11 +77,11 @@
 
 @section('scripts')
 
-    <script src="{{ asset('public/js/back/jquery.dataTables.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('public/js/back/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('public/js/back/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('public/js/back/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
     <script>
         $(document).ready(function() {
-            $('#table').DataTable();
+            $('#content').DataTable();
         } );
     </script>
 @endsection

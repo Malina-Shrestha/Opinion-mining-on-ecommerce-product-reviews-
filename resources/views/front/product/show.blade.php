@@ -24,7 +24,7 @@
                     <div class="col-12 px-0">
                         <hr>
                     </div>
-                    {{--<div class="col-12">--}}
+                    <div class="col-12">
                         {{--<ul>--}}
                             {{--<li>Processor 8th Generation Intel Core i9-8950HK (6-Core, 12MB Cache, Overclocking up to 5.0GHz)</li>--}}
                             {{--<li>Memory 32GB DDR4-2666MHz, 2x16GB Ram Speed Gaming Performance</li>--}}
@@ -32,7 +32,9 @@
                             {{--<li>17.3" Full HD display 1920 x 1080 resolution boasts impressive color and clarity. IPS technology for wide viewing angles.</li>--}}
                             {{--<li>Video Card NVIDIA® GeForce® RTX 2080 with 8GB GDDR6</li>--}}
                         {{--</ul>--}}
-                    {{--</div>--}}
+                        <img src="{{ url('public/images/'.$product->image) }}" style="">
+                        {{--<div class="product-image" style="background-image: url('{{ url('public/images/'.$product->image) }}')"></div>--}}
+                    </div>
                 </div>
                 <!-- Product Info -->
 
@@ -218,9 +220,7 @@
                                 @if(!$reviews->isEmpty())
                                 @foreach($reviews as $review)
                                 <!-- Comments -->
-                                <div class="col-12 text-justify py-2 mb-3 bg-gray" @if($review->positive_review==true) style="border-left: 3px solid lightgreen";
-" @else style="border-left: 3px solid red";
-" @endif>
+                                <div class="col-12 text-justify py-2 mb-3 bg-gray" @if($review->positive_review == true) style="border-left: 3px solid green";@elseif($review->positive_review == false) style="border-left: 3px solid red";@else style="border-left: 3px solid yellow";@endif>
                                     <div class="row">
                                         <div class="col-12">
                                             <strong class="mr-2">{{ $review->user->name }}</strong>
@@ -395,16 +395,19 @@
                                 data: {
                                     datasets: [{
                                         data: [
-                                            {{$positive_reviews}},{{$negative_reviews}}
+                                            {{$positive_reviews}},{{$neutral_reviews}},{{$negative_reviews}},
                                         ],
                                         backgroundColor: [
-                                            'rgba(0,255,0,0.9)',
-                                            'rgba(255,0,0,0.6)',
+                                            'rgba(0,128,0,0.9)',
+                                            'rgb(255,255,0,9)',
+                                            'rgba(255,0,0,0.9)',
+
                                         ],
                                         label: 'Dataset 1'
                                     }],
                                     labels: [
                                         'Positive',
+                                        'Neutral',
                                         'Negative',
                                     ]
                                 },

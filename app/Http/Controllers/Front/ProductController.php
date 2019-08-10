@@ -13,8 +13,9 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $reviews = $product->reviews->take(10);
-        $positive_reviews = $product->reviews->where('positive_review',true)->count();
-        $negative_reviews = $product->reviews->where('positive_review',false)->count();
+        $positive_reviews = Review::where('positive_review',true)->count();
+        $negative_reviews = Review::where('positive_review',false)->count();
+        $neutral_reviews = Review::where('positive_review',null)->count();
         $total = $reviews->count();
 
         $avg = $reviews->average('rating');
@@ -40,7 +41,7 @@ class ProductController extends Controller
 
         $similar = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->take(4)->get();
 
-        return view('front.product.show', compact('product', 'reviews', 'total', 'avg', 'ratings', 'similar','positive_reviews','negative_reviews'));
+        return view('front.product.show', compact('product', 'reviews', 'total', 'avg', 'ratings', 'similar','positive_reviews','negative_reviews','neutral_reviews'));
     }
 
     public function storeReview(Request $request, Product $product)
@@ -50,7 +51,14 @@ class ProductController extends Controller
             'rating' => 'required'
         ]);
         $analysis = new SentimentAnalysis();
-        $sentiments = $analysis->isPositive($request->comment);
+        $sentimentAnalysis = $analysis->decision($request->comment);
+        if($sentimentAnalysis === 'positive'){
+            $sentiments = true;
+        }elseif ($sentimentAnalysis === 'negative'){
+            $sentiments = false;
+        }else{
+            $sentiments = null;
+        }
         $review = new Review;
         $review->comment = $request->comment;
         $review->positive_review = $sentiments;

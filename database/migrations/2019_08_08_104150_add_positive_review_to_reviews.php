@@ -14,7 +14,7 @@ class AddPositiveReviewToReviews extends Migration
     public function up()
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->boolean('positive_review')->default(1)->after('rating');
+            $table->boolean('positive_review')->nullable()->after('rating');
         });
     }
 

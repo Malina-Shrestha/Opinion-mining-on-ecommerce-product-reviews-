@@ -18,4 +18,9 @@ class HomeController extends Controller
 
         return view('front.home.index', compact('featuredProducts', 'latestProducts', 'topProducts'));
     }
+
+    public function about()
+    {
+        return view('front.about');
+    }
 }

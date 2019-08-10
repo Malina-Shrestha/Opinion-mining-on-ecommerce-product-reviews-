@@ -154,7 +154,7 @@
                                     <a href="#">Contact Us</a>
                                 </li>
                                 <li>
-                                    <a href="#">About Us</a>
+                                    <a href="{{ route('front.about') }}">About Us</a>
                                 </li>
                                 <li>
                                     <a href="#">Privacy Policy</a>

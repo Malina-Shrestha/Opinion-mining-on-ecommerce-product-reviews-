@@ -17,7 +17,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::get();
 
         return view('back.products.index', compact('products'));
     }
@@ -65,7 +65,6 @@ class ProductsController extends Controller
             $img = Image::make($request->image);
             $ext = $request->image->extension();
             $filename = 'img_'.date('Y M d (l)').'_'.rand(1000, 9999).'.'.$ext;
-+
             $img->resize(1000,1000, function ($constraints) {
                 $constraints->aspectRatio();
                 $constraints->upsize();

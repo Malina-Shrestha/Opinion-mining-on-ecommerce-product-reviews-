@@ -15,20 +15,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @if(!$admins->isEmpty())
-                        <table id="table" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>SN</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($admins as $admin)
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($admins as $admin)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $admin->name }}</td>
@@ -43,12 +42,9 @@
                                         {{ form::close() }}
                                     </td>
                                 </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        @else
-                            <h5 class="text-center">No Admin added</h5>
-                    @endif
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

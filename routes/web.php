@@ -96,6 +96,8 @@ Route::get('/search','Front\SearchController@index')->name('front.search');
 
 Route::get('/', 'Front\HomeController@index');
 
+Route::get('/about', 'Front\HomeController@about')->name('front.about');
+
 
 
 
